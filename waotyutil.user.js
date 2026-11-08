@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         waotyutil
 // @namespace    woid.im
-// @version      1.0.0
+// @version      1.0.1
 // @description  Quick add new release from Apple Music, SoundCloud, Spotify, and Bandcamp + other useful features for website contributors.
 // @author       woidzero
 // @match        https://*.albumoftheyear.org/*
@@ -14,12 +14,12 @@
 // @connect      itunes.apple.com
 // @connect      spotify.com
 // @connect      open.spotify.com
-// @connect      *.scdn.co
-// @connect      *.bandcamp.com
-// @connect      *.sndcdn.com
-// @connect      *.spotifycdn.com
-// @connect      *.bandcamp.com
-// @connect      *.bcbits.com
+// @connect      scdn.co
+// @connect      bandcamp.com
+// @connect      sndcdn.com
+// @connect      spotifycdn.com
+// @connect      bandcamp.com
+// @connect      bcbits.com
 // @homepageURL  https://by.woid.im/waotyutil
 // @updateURL    https://github.com/woidzero/waotyutil/raw/refs/heads/master/waotyutil.user.js
 // @downloadURL  https://github.com/woidzero/waotyutil/raw/refs/heads/master/waotyutil.user.js
