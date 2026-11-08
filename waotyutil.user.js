@@ -21,8 +21,9 @@
 // @connect      *.bandcamp.com
 // @connect      *.bcbits.com
 // @homepageURL  https://by.woid.im/waotyutil
-// @updateURL    https://by.woid.im/waotyutil/waotyutil.user.js
-// @downloadURL  https://by.woid.im/waotyutil/waotyutil.user.js
+// @updateURL    https://github.com/woidzero/waotyutil/raw/refs/heads/master/waotyutil.user.js
+// @downloadURL  https://github.com/woidzero/waotyutil/raw/refs/heads/master/waotyutil.user.js
+// @icon         https://by.woid.im/waotyutil/images/icon.png
 // ==/UserScript==
 
 (function() {
