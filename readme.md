@@ -36,6 +36,7 @@ Quick add new releases from Apple Music, Bandcamp, Deezer, Discogs, MusicBrainz,
 > bun i # or npm i
 >
 > bun run build
+bun run build-loader
 > ```
 
 #### thanks for visiting

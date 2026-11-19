@@ -1,10 +1,18 @@
 {
   "name": "waotyutil",
   "version": "1.2.0",
+  "loaderVersion": "2.0.0",
+  "description": "Quick add new release from Apple Music, SoundCloud, Spotify, and Bandcamp + other useful features for website contributors.",
+  "author": "woidzero",
   "private": true,
   "type": "module",
+  "entryPoints": {
+    "main": "src/main.ts",
+    "loader": "src/loader/main.js"
+  },
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "bun scripts/build.mjs",
+    "build-loader": "bun scripts/build-loader.mjs",
     "watch": "bun scripts/build.mjs --watch",
     "check": "tsc --noEmit"
   },
@@ -14,5 +22,8 @@
   },
   "dependencies": {
     "@types/greasemonkey": "^4.0.7"
-  }
+  },
+  "updateUrl": "https://github.com/woidzero/waotyutil/raw/refs/heads/master/dist/waotyutil.user.js",
+  "downloadUrl": "https://github.com/woidzero/waotyutil/raw/refs/heads/master/dist/waotyutil.user.js",
+  "homepage": "https://github.com/woidzero/waotyutil/"
 }

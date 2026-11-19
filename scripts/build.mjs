@@ -4,25 +4,38 @@ import {
     rename,
     rm,
     writeFile,
-    access,
 } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { context } from "esbuild";
+import { context, transform } from "esbuild";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = resolve(root, "dist");
 const watching = process.argv.includes("--watch");
 
-// Создаем директорию заранее, чтобы esbuild/plugins не падали при первом запуске
+const packageJson = JSON.parse(
+    await readFile(resolve(root, "package.json"), "utf8"),
+);
+
+if (typeof packageJson.version !== "string" || packageJson.version.length === 0)
+    throw new Error("package.json must define a non-empty version.");
+if (typeof packageJson.loaderVersion !== "string" || packageJson.loaderVersion.length === 0)
+    throw new Error("package.json must define a non-empty loader version.");
+
+
 await mkdir(outputDirectory, { recursive: true });
 
 const buildContext = await context({
-    entryPoints: [resolve(root, "src/main.ts")],
+    entryPoints: [resolve(root, packageJson.entryPoints.main)],
     bundle: true,
     format: "iife",
+    minify: true,
     target: "es2022",
     write: false,
+    define: {
+        VERSION: JSON.stringify(packageJson.version),
+        LOADER_VERSION: JSON.stringify(packageJson.loaderVersion),
+    },
     outfile: resolve(outputDirectory, "main.js"),
     plugins: [
         {
@@ -54,8 +67,13 @@ const buildContext = await context({
                     { filter: /\.css$/, namespace: "inline-css" },
                     async (args) => {
                         const css = await readFile(args.path, "utf8");
+                        const { code } = await transform(css, {
+                            loader: "css",
+                            minify: true,
+                        });
+
                         return {
-                            contents: `const style = document.createElement('style'); style.textContent = ${JSON.stringify(css)}; document.head.append(style);`,
+                            contents: `const style = document.createElement('style'); style.textContent = ${JSON.stringify(code)}; document.head.append(style);`,
                             loader: "js",
                             watchFiles: [args.path],
                         };
