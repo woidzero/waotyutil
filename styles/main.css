@@ -92,8 +92,7 @@
   font-size: 0.8rem;
   color: var(--fg-3);
 }
-.wau.ui.column,
-.wau.ui.sub-column {
+.wau.ui.column, .wau.ui.sub-column {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -119,6 +118,13 @@
   flex-direction: row;
   margin-top: 10px;
   gap: 5px;
+}
+.wau.ui.button-group p {
+  margin-left: auto;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .wau.ui.addons-buttons-wrapper {
   position: fixed;
@@ -274,22 +280,19 @@
   padding: 5px 8px !important;
   width: 100% !important;
 }
-.wau.ui.input[type="number"] {
+.wau.ui.input[type=number] {
   -moz-appearance: textfield;
   -webkit-appearance: textfield;
-  appearance: textfield;
+          appearance: textfield;
 }
-.wau.ui.input[type="number"]::-webkit-outer-spin-button,
-.wau.ui.input[type="number"]::-webkit-inner-spin-button {
+.wau.ui.input[type=number]::-webkit-outer-spin-button, .wau.ui.input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.wau.ui.input[type="range"]::-moz-range-track,
-.wau.ui.input[type="range"]::-webkit-slider-runnable-track {
+.wau.ui.input[type=range]::-moz-range-track, .wau.ui.input[type=range]::-webkit-slider-runnable-track {
   background: var(--box-invert-1);
 }
-.wau.ui.input[type="range"]::-webkit-slider-thumb,
-.wau.ui.input[type="range"]::-moz-range-thumb {
+.wau.ui.input[type=range]::-webkit-slider-thumb, .wau.ui.input[type=range]::-moz-range-thumb {
   -webkit-appearance: none;
   appearance: none;
   background: var(--accent);
@@ -298,7 +301,7 @@
   border: 0;
   outline: 0;
 }
-.wau.ui.input[type="range"]:focus {
+.wau.ui.input[type=range]:focus {
   outline: none;
 }
 .wau.ui.input::-moz-placeholder {
@@ -307,8 +310,7 @@
 .wau.ui.input::placeholder {
   color: var(--fg-3) !important;
 }
-.wau.ui.input:hover,
-.wau.ui.input:focus {
+.wau.ui.input:hover, .wau.ui.input:focus {
   background: var(--box-2) !important;
 }
 

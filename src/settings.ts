@@ -143,6 +143,7 @@ export class SettingsManager {
                 <div class="wau ui button-group">
                     <button type="submit" class="wau ui button primary">Save</button>
                     <button type="button" id="wau-settings-cancel" class="wau ui button secondary">Cancel</button>
+                    <p>v${VERSION} (loader v${LOADER_VERSION})</p>
                 </div>
             </form>
         `;

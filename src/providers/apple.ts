@@ -152,7 +152,7 @@ export class AppleMusic implements MusicProvider {
       // @ts-ignore
       const features = parts
         .slice(1)
-        .map((p) => p.trim())
+        .map((p: string) => p.trim())
         .filter(Boolean);
 
       tracks.push({

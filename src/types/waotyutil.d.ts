@@ -1,3 +1,6 @@
+declare const VERSION: string;
+declare const LOADER_VERSION: string;
+
 interface BaseField {
   name: string;
   description: string;
