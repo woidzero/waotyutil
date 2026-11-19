@@ -1,0 +1,395 @@
+@charset "UTF-8";
+:root {
+  --accent: #fb384b;
+  --accent-dim: #ff485a9a;
+  --accent-dim-2: #ff001925;
+  --box-1: rgba(0, 0, 0, 0.2);
+  --box-2: rgba(0, 0, 0, 0.4);
+  --box-invert-1: rgba(255, 255, 255, 0.1);
+  --box-invert-2: rgba(255, 255, 255, 0.2);
+  --box-invert-3: rgba(255, 255, 255, 0.4);
+  --fg: black;
+  --fg-1: white;
+  --fg-2: rgb(255, 203, 203);
+  --fg-3: rgba(255, 255, 255, 0.3);
+  --fg-4: rgba(255, 255, 255, 0.5);
+  --fg-5: black;
+  --fg-6: rgba(255, 255, 255, 0.7);
+  --status-loading: #c9c9c9;
+  --status-success: #4bf14b;
+  --status-error: #fa4f4f;
+  --status-warn: #f7ce48;
+  --wau-button-primary-fg: var(--fg-1);
+  --wau-button-primary-bg: var(--accent);
+  --wau-button-primary-bg-hover: var(--accent-dim);
+  --wau-button-secondary-fg: var(--fg);
+  --wau-button-secondary-bg: white;
+  --wau-button-secondary-bg-hover: #cfcfcf;
+  --wau-input-bg: var(--box-invert-1);
+  --wau-input-bg-focus: var(--box-invert-2);
+  --wau-input-fg: var(--fg-1);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.wau * {
+  box-sizing: border-box !important;
+}
+.wau.ui.container {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  background: var(--accent-dim-2);
+  border-radius: 8px;
+  border: 1px dashed var(--accent-dim);
+  color: var(--fg-1);
+  margin-bottom: 15px;
+}
+.wau.ui.status {
+  margin: 0;
+  padding: 0;
+}
+.wau.ui.window {
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(50px);
+  background-color: var(--box-2);
+  color: var(--fg-2);
+  border-radius: 20px;
+  padding: 15px;
+  border: 0;
+  box-shadow: 1px 0px 50px -6px rgba(0, 0, 0, 0.5137254902);
+  overflow-x: hidden;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 500px;
+  max-height: 600px;
+}
+.wau.ui.window label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--fg-6);
+  background: var(--wau-input-bg) !important;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+.wau.ui.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+.wau.ui.form p {
+  margin: 0;
+  padding: 0;
+  font-size: 0.8rem;
+  color: var(--fg-3);
+}
+.wau.ui.column,
+.wau.ui.sub-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+.wau.ui details {
+  cursor: pointer;
+}
+.wau.ui details summary::before {
+  content: "▷";
+  font-size: 10px;
+  margin-right: 3px;
+  color: var(--fg-3) !important;
+}
+.wau.ui details[open] {
+  margin-bottom: 12px;
+}
+.wau.ui details[open] summary::before {
+  content: "▼";
+}
+.wau.ui.button-group {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  gap: 5px;
+}
+.wau.ui.addons-buttons-wrapper {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.wau.ui.addons-buttons-wrapper > * {
+  position: relative !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  inset: 0 !important;
+  margin: 0 !important;
+}
+.wau.ui.addons-buttons-wrapper #btx-home-button {
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  color: var(--btx-accent);
+  transform: none !important;
+}
+.wau.ui.addons-buttons-wrapper #btx-home-button svg {
+  width: 25px;
+  height: 25px;
+}
+.wau.ui.button-settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  gap: 8px;
+  height: 25px;
+  width: 25px;
+  margin-left: 15px;
+}
+.wau.ui.button-settings svg {
+  display: inline-flex;
+  fill: var(--accent);
+  transition: 0.3s fill ease-in-out;
+}
+.wau.ui.button-settings span {
+  display: none;
+  color: var(--fg-2);
+  font-size: 1.2rem;
+}
+.wau.ui.button-settings:hover svg {
+  fill: var(--accent-dim);
+}
+.wau.ui.info-box {
+  background: transparent !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  height: -moz-fit-content !important;
+  height: fit-content !important;
+  padding: 0 !important;
+  line-height: 0.5;
+}
+.wau.ui.info-box:hover {
+  animation: rotation 5s linear infinite;
+}
+.wau.ui.title {
+  color: var(--fg-1);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.wau.ui.row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: nowrap;
+}
+.wau.ui.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  line-height: normal;
+}
+.wau.ui.heading:not(.group, .sub) {
+  margin-bottom: 10px !important;
+}
+.wau.ui.heading.group span {
+  font-weight: normal;
+  letter-spacing: normal;
+  font-size: 13px;
+}
+.wau.ui.heading.sub span {
+  font-weight: normal;
+  letter-spacing: normal;
+  font-size: 11px;
+  color: var(--fg-4);
+  margin-top: 5px;
+}
+.wau.ui.heading span {
+  font-weight: bold;
+  color: var(--fg-1);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 15px;
+}
+.wau.ui.heading button {
+  margin-left: auto;
+}
+.wau.ui.heading svg {
+  width: 17px;
+  height: 17px;
+  fill: var(--fg-1);
+}
+.wau.ui.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 1rem;
+  gap: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 0;
+  background: transparent !important;
+  color: var(--fg-1) !important;
+}
+.wau.ui.button.primary {
+  background: var(--wau-button-primary-bg) !important;
+  color: var(--wau-button-primary-fg) !important;
+}
+.wau.ui.button.primary:hover {
+  background: var(--wau-button-primary-bg-hover) !important;
+}
+.wau.ui.button.secondary {
+  background: var(--wau-button-secondary-bg) !important;
+  color: var(--wau-button-secondary-fg) !important;
+}
+.wau.ui.button.secondary:hover {
+  background: var(--wau-button-secondary-bg-hover) !important;
+}
+.wau.ui.input {
+  transition: 0.3s ease-in-out background;
+  background: var(--box-1) !important;
+  color: var(--fg-1) !important;
+  border-radius: 8px !important;
+  outline: 0 !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 5px 8px !important;
+  width: 100% !important;
+}
+.wau.ui.input[type="number"] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+.wau.ui.input[type="number"]::-webkit-outer-spin-button,
+.wau.ui.input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.wau.ui.input[type="range"]::-moz-range-track,
+.wau.ui.input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--box-invert-1);
+}
+.wau.ui.input[type="range"]::-webkit-slider-thumb,
+.wau.ui.input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--accent);
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+  border: 0;
+  outline: 0;
+}
+.wau.ui.input[type="range"]:focus {
+  outline: none;
+}
+.wau.ui.input::-moz-placeholder {
+  color: var(--fg-3) !important;
+}
+.wau.ui.input::placeholder {
+  color: var(--fg-3) !important;
+}
+.wau.ui.input:hover,
+.wau.ui.input:focus {
+  background: var(--box-2) !important;
+}
+
+#header {
+  display: flex;
+  height: -moz-fit-content;
+  height: fit-content;
+  line-height: normal;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+#header #content {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+}
+
+#nav[style$="6;"],
+#nav[style$="block;"] {
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  line-height: normal;
+}
+#nav[style$="6;"] #content,
+#nav[style$="block;"] #content {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
+button {
+  outline: 0 !important;
+}
+
+.btx-settings-gear {
+  display: none !important;
+}
+
+@media screen and (min-width: 0px) and (max-width: 480px) {
+  .wau.ui.window {
+    min-width: 330px !important;
+  }
+  #nav[style$="6;"] {
+    display: none;
+  }
+  #nav[style$="k;"] {
+    display: flex !important;
+  }
+  #nav[style$="k;"] #content {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  #nav[style$="k;"] #content .navBlock {
+    width: 100%;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+  }
+  #nav[style$="k;"] #content .navBlock a,
+  #nav[style$="k;"] #content .navBlock button {
+    line-height: normal !important;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+  }
+  #nav[style$="k;"] #content .wau.ui.button-settings {
+    margin: 15px 0 !important;
+    width: 100% !important;
+    height: 50px;
+    border: 1px solid var(--accent);
+    background: var(--accent-dim-2);
+    border-radius: 12px;
+  }
+  #nav[style$="k;"] #content .wau.ui.button-settings span {
+    display: inline-flex;
+  }
+  #nav[style$="k;"] #content .wau.ui.button-settings svg {
+    height: 25px;
+    width: 25px;
+  }
+}

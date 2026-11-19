@@ -1,0 +1,18 @@
+{
+  "name": "waotyutil",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "bun scripts/build.mjs --watch",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.0"
+  },
+  "dependencies": {
+    "@types/greasemonkey": "^4.0.7"
+  }
+}
