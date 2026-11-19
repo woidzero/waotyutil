@@ -19,7 +19,7 @@ Quick add new releases from Apple Music, Bandcamp, Deezer, Discogs, MusicBrainz,
 ### installation
 
 > 1. install <a href="https://www.tampermonkey.net/">tampermonkey</a> / <a href="https://www.greasespot.net/">greasemonkey</a> / other userscript manager.
-> 2. add <a href="https://by.woid.im/waotyutil.user.js">waotyutil.user.js</a>.
+> 2. add <a href="https://by.woid.im/waotyutil/waotyutil/dist/waotyutil.user.js">waotyutil.user.js</a>.
 > 3. done.
 
 ### settings
@@ -33,9 +33,9 @@ Quick add new releases from Apple Music, Bandcamp, Deezer, Discogs, MusicBrainz,
 >
 > cd waotyutil
 >
-> bun i // or npm i
+> bun i # or npm i
 >
 > bun run build
 > ```
 
-### thanks for visiting
+#### thanks for visiting
